@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Medecin;
+use App\Models\Specialite;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,10 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('specialites', function (Blueprint $table) {
+        Schema::create('specialite_medecins', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('status');
+            $table->foreignIdFor(Medecin::class)->nullable();
+            $table->foreignIdFor(Specialite::class)->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('specialites');
+        Schema::dropIfExists('specialite_medecins');
     }
 };

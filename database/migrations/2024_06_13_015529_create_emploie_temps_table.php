@@ -12,10 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('specialites', function (Blueprint $table) {
+        Schema::create('emploie_temps', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('status');
+            $table->string('heure',20);
+            $table->foreignIdFor(Medecin::class);
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('specialites');
+        Schema::dropIfExists('emploie_temps');
     }
 };

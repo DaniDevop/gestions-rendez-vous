@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SpetialiteRequest;
 use App\Models\Medecin;
+use App\Models\Specialite;
 use Illuminate\Http\Request;
 
 class MedecinController extends Controller
@@ -36,7 +38,7 @@ class MedecinController extends Controller
 
 
         $medecin=Medecin::find($request->id);
-      
+
         $medecin->nom=$request->nom;
         $medecin->prenom=$request->prenom;
         $medecin->email=$request->email;
@@ -53,13 +55,13 @@ class MedecinController extends Controller
     }
 
     public function listesMedecin(){
-        
+
     $medecinAll=Medecin::all();
         return view("medecin.listes",compact('medecinAll'));
     }
 
     public function detailsMedecin($id){
-    
+
         $medecin=Medecin::find($id);
         if(!$medecin){
             toastr()->error('Medecin non trouvé');
@@ -68,4 +70,24 @@ class MedecinController extends Controller
         return view("medecin.edit",compact('medecin'));
 
     }
+
+
+    public function listeSpecialite(){
+        $spetialiteAll=Specialite::orderBy('id','DESC')->get();
+        return view("Spetialite.listes",compact('spetialiteAll'));
+
+    }
+
+
+    public function addSpecialite(SpetialiteRequest $spetialiteRequest){
+
+        $spetialiteAll= new Specialite();
+        $spetialiteAll->nom=$spetialiteRequest->nom;
+        $spetialiteAll->status=$spetialiteRequest->status;
+        $spetialiteAll->save();
+        flash()->success('Specialite ajoute avec success !.');
+        return back();
+    }
+
+
 }
