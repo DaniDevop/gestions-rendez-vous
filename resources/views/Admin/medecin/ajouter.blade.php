@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  @include('templates.head')
+  @include('Admin.templates.head')
 
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_sidebar.html -->
-      @include('templates.sidebar')
+      @include('Admin.templates.sidebar')
 
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:../../partials/_navbar.html -->
-        @include('templates.navbar')
+        @include('Admin.templates.navbar')
 
         <!-- partial -->
         <div class="main-panel">
@@ -23,11 +23,22 @@
                 </ol>
               </nav>
             </div>
+
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
             <div class="row">
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    
+
                     <form class="forms-sample" method="POST" action="/storeMedecin" enctype="multipart/form-data">
                         @csrf
                       <div class="form-group">
@@ -50,20 +61,20 @@
                         <label for="exampleInputPassword1">Telephone</label>
                         <input type="text" class="form-control"  id="exampleInputPassword1" name="phone" placeholder="Phone">
                       </div>
-                    
+
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     </form>
                   </div>
                 </div>
               </div>
-             
-             
-             
-              
-             
-             
-            
-              
+
+
+
+
+
+
+
+
             </div>
           </div>
           <!-- content-wrapper ends -->
@@ -80,7 +91,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    @include('templates.js')
+    @include('Admin.templates.js')
 
     <!-- End custom js for this page -->
   </body>

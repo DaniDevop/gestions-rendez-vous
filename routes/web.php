@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentControllers;
 use App\Http\Controllers\MedecinController;
@@ -34,3 +35,8 @@ Route::get('/listeEmploie', [AppointmentControllers::class, 'index']);
 Route::post('/addEmploie', [AppointmentControllers::class, 'store'])->name('addEmploie');
 Route::post('/deleteEmploie', [AppointmentControllers::class, 'destroy']);
 Route::post('/updateEmploie', [AppointmentControllers::class, 'update']);
+
+
+Route::get('/listesUsers', [AdminController::class, 'users'])->name('listes.users');
+
+Route::post('/users/addUsers', [AdminController::class, 'addUser'])->name('add.users');

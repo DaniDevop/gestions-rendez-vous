@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-@include('templates.head')
+
+@include('Admin.templates.head')
 
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_sidebar.html -->
-    @include('templates.sidebar')
+    <!-- partial:../../partials/_sidebar.html -->
+    @include('Admin.templates.sidebar')
 
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_navbar.html -->
-      @include('templates.navbar')
+      <!-- partial:../../partials/_navbar.html -->
+      @include('Admin.templates.navbar')
 
         <!-- partial -->
         <div class="main-panel">
@@ -24,8 +24,8 @@
               </nav>
             </div>
             <div class="row">
-             
-              
+
+
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -43,7 +43,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                           
+
                           <tr>
                             <td class="py-1">
                               <img src="{{asset('storage/'.$medecin->profil)}}" alt="image" />
@@ -57,15 +57,15 @@
                             <td> <a href="#" class="btn btn-info"><i class="bi bi-eye"  data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a> </td>
 
                           </tr>
-                        
-                          
+
+
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
-             
+
              <!-- Button trigger modal -->
 
 <!-- Modal -->
@@ -77,7 +77,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-         
+
       <form class="forms-sample" method="POST" action="/updateMedecin" enctype="multipart/form-data">
                         @csrf
                       <div class="form-group">
@@ -103,7 +103,7 @@
 
                       <input type="hidden" class="form-control" value="{{$medecin->id}}"  id="exampleInputPassword1" name="id" placeholder="Phone">
 
-                    
+
                       <button type="submit" class="btn btn-primary mr-2">Modifier</button>
                     </form>
       </div>

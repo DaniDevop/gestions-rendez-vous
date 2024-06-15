@@ -13,7 +13,7 @@ class MedecinController extends Controller
 
 
     public function addMedecin(){
-        return view("medecin.ajouter");
+        return view("Admin.medecin.ajouter");
     }
 
     public function store(Request $request){
@@ -57,7 +57,7 @@ class MedecinController extends Controller
     public function listesMedecin(){
 
     $medecinAll=Medecin::all();
-        return view("medecin.listes",compact('medecinAll'));
+        return view("Admin.medecin.listes",compact('medecinAll'));
     }
 
     public function detailsMedecin($id){
@@ -67,14 +67,14 @@ class MedecinController extends Controller
             toastr()->error('Medecin non trouvé');
         }
 
-        return view("medecin.edit",compact('medecin'));
+        return view("Admin.medecin.edit",compact('medecin'));
 
     }
 
 
     public function listeSpecialite(){
         $spetialiteAll=Specialite::orderBy('id','DESC')->get();
-        return view("Spetialite.listes",compact('spetialiteAll'));
+        return view("Admin.Spetialite.listes",compact('spetialiteAll'));
 
     }
 

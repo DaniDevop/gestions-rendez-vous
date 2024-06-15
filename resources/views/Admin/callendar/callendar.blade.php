@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('templates.head')
+@include('Admin.templates.head')
 <link href="https://unpkg.com/@fullcalendar/core@4.4.2/main.min.css" rel="stylesheet">
 <link href="https://unpkg.com/@fullcalendar/daygrid@4.4.2/main.min.css" rel="stylesheet">
 <script src="https://unpkg.com/@fullcalendar/core@4.4.2/main.min.js"></script>
@@ -10,9 +10,9 @@
 
 <body>
     <div class="container-scroller">
-        @include('templates.sidebar')
+        @include('Admin.templates.sidebar')
         <div class="container-fluid page-body-wrapper">
-            @include('templates.navbar')
+            @include('Admin.templates.navbar')
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div id="calendar"></div>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    @include('templates.js')
+    @include('Admin.templates.js')
     @livewireScripts
     @stack('scripts')
 </body>

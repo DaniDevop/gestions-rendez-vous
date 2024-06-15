@@ -5,12 +5,12 @@
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
-      @include('templates.sidebar')
+      @include('Admin.templates.sidebar')
 
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
-        @include('templates.navbar')
+        @include('Admin.templates.navbar')
 
         <!-- partial -->
         <div class="main-panel">
@@ -692,7 +692,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-     @include('templates.js')
+     @include('Admin.templates.js')
     <!-- End custom js for this page -->
   </body>
 </html>

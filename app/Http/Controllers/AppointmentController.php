@@ -11,7 +11,7 @@ class AppointmentController extends Controller
     public function index()
     {
         $medecins = Medecin::all();
-        return view('callendar.callendar', compact('medecins'));
+        return view('Admin.callendar.callendar', compact('medecins'));
     }
 
     public function fetchAppointments()

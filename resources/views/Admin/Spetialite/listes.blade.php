@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('templates.head')
+@include('Admin.templates.head')
 
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
-    @include('templates.sidebar')
+    @include('Admin.templates.sidebar')
 
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_navbar.html -->
-      @include('templates.navbar')
+      @include('Admin.templates.navbar')
 
         <!-- partial -->
         <div class="main-panel">
@@ -141,7 +141,7 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    @include('templates.js')
+    @include('Admin.templates.js')
 
   </body>
 </html>
