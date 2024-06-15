@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('templates.head')
+@include('Admin.templates.head')
 
   <body>
     <div class="container-scroller">

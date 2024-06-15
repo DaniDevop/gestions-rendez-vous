@@ -17,26 +17,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+
+Route::get('/Authentification', [AdminController::class, 'login_users'])->name('login.users');
+Route::post('/Authentification/users', [AdminController::class, 'doLogin'])->name('doLogin.users');
+
+Route::middleware([ 'auth.users'])->group(function () {
+
+    Route::get('/ajouterMedecin',[MedecinController::class,'addMedecin']);
+    Route::post('/storeMedecin',[MedecinController::class,'store']);
+    Route::get('/listesMedecin',[MedecinController::class,'listesMedecin']);
+    Route::get('/editMedecin/{id}',[MedecinController::class,'detailsMedecin'])->name('edit.medecin');
+    Route::get('/specialite',[MedecinController::class,'listeSpecialite'])->name('liste.Specialite');
+    Route::post('/addSpecialte',[MedecinController::class,'addSpecialite'])->name('add.Specialite');
+
+    Route::post('/updateMedecin',[MedecinController::class,'update']);
+
+    Route::get('/', [AdminController::class, 'home'])->name('home');
+    Route::get('/callendarMedecin', [AppointmentController::class, 'index']);
+    Route::get('/listeEmploie', [AppointmentControllers::class, 'index']);
+    Route::post('/addEmploie', [AppointmentControllers::class, 'store'])->name('addEmploie');
+    Route::post('/deleteEmploie', [AppointmentControllers::class, 'destroy']);
+    Route::post('/updateEmploie', [AppointmentControllers::class, 'update']);
+
+
+    Route::get('/listesUsers', [AdminController::class, 'users'])->name('listes.users');
+
+    Route::post('/users/addUsers', [AdminController::class, 'addUser'])->name('add.users');
+
 });
-Route::get('/ajouterMedecin',[MedecinController::class,'addMedecin']);
-Route::post('/storeMedecin',[MedecinController::class,'store']);
-Route::get('/listesMedecin',[MedecinController::class,'listesMedecin']);
-Route::get('/editMedecin/{id}',[MedecinController::class,'detailsMedecin'])->name('edit.medecin');
-Route::get('/specialite',[MedecinController::class,'listeSpecialite'])->name('liste.Specialite');
-Route::post('/addSpecialte',[MedecinController::class,'addSpecialite'])->name('add.Specialite');
-
-Route::post('/updateMedecin',[MedecinController::class,'update']);
-
-
-Route::get('/callendarMedecin', [AppointmentController::class, 'index']);
-Route::get('/listeEmploie', [AppointmentControllers::class, 'index']);
-Route::post('/addEmploie', [AppointmentControllers::class, 'store'])->name('addEmploie');
-Route::post('/deleteEmploie', [AppointmentControllers::class, 'destroy']);
-Route::post('/updateEmploie', [AppointmentControllers::class, 'update']);
-
-
-Route::get('/listesUsers', [AdminController::class, 'users'])->name('listes.users');
-
-Route::post('/users/addUsers', [AdminController::class, 'addUser'])->name('add.users');
