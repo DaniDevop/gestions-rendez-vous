@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Medecin;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,21 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('emploie_temps', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('heure',20);
-            $table->foreignIdFor(Medecin::class);
-            $table->string('start');
-            $table->string('end');
+            $table->string('title');
+            $table->date('date');
+
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.  
      */
     public function down(): void
     {
-        Schema::dropIfExists('emploie_temps');
+        Schema::dropIfExists('appointments');
     }
 };

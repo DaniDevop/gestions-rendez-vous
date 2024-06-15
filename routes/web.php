@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AppointmentControllers;
 use App\Http\Controllers\MedecinController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +30,7 @@ Route::post('/updateMedecin',[MedecinController::class,'update']);
 
 
 Route::get('/callendarMedecin', [AppointmentController::class, 'index']);
-Route::get('/api/appointments', [AppointmentController::class, 'fetchAppointments']);
-Route::post('/api/appointments', [AppointmentController::class, 'store']);
+Route::get('/listeEmploie', [AppointmentControllers::class, 'index']);
+Route::post('/addEmploie', [AppointmentControllers::class, 'store'])->name('addEmploie');
+Route::post('/deleteEmploie', [AppointmentControllers::class, 'destroy']);
+Route::post('/updateEmploie', [AppointmentControllers::class, 'update']);
