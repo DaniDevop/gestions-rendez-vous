@@ -28,6 +28,8 @@ Route::post('/patient/login-patient', [PatientController::class, 'loginPatient']
 
 Route::middleware(['auth.patient'])->group(function(){
     Route::get('/patient/dashboard', [PatientController::class, 'dashboard'])->name('dashboard.client');
+    Route::post('/patient/dashboard/update-account', [PatientController::class, 'updateccountPatient'])->name('updateccount.Patient');
+
 
 
 });

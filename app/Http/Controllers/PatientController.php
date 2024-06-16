@@ -55,11 +55,59 @@ class PatientController extends Controller
     public function dashboard(){
         $patient = session()->get('patient');
 
+
         if (!$patient) {
             toastr()->error('Veuillez vous connecter');
             return redirect()->route('home.client');
         }
 
+
+
         return view('Patient.dashboard', compact('patient'));
     }
+
+
+    public function updateccountPatient(Request $patientRequest){
+
+        $patientRequest->validate([
+            'nom'=>'required',
+            'prenom'=>'required',
+            'email'=>'required|email',
+            'tel'=>'required',
+            'adresse'=>'nullable',
+            'password'=>'nullable',
+            'password_confirm'=>'nullable',
+        ]);
+        $patient = Patient::find($patientRequest->id);
+        $patientExist=Patient::where('email',$patientRequest->email)->orWhere('tel',$patientRequest->tel)->where('id','!=',$patientRequest->id);
+        if(!$patient){
+            toastr()->error('Veuillez vous connecter');
+            return redirect()->route('home.client');
+        }
+        if(!$patientExist){
+            toastr()->warning('Attention l email ou le téléphone existe déjà pour un autre user');
+            return back();
+        }
+        $patient->nom = $patientRequest->nom;
+        $patient->prenom = $patientRequest->prenom;
+        $patient->email = $patientRequest->email;
+        $patient->tel = $patientRequest->tel;
+        $patient->adresse = $patientRequest->adresse ?: "";
+        if($patientRequest->password !=""){
+
+            if($patientRequest->password != $patientRequest->password_confirm){
+                toastr()->error('Attention vos mots de passes sont differents');
+            }
+            $patient->password = Hash::make($patientRequest->password);
+
+        }
+
+        session()->forget('patient');
+        session()->put('patient', $patient);
+        $patient->save();
+
+        toastr()->info('Vos informations ont été mises à jour avec succès !');
+        return back();
+    }
+
 }
