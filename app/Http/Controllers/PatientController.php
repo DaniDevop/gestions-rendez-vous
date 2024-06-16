@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PatientRequest;
 use App\Models\Patient;
+use App\Models\patientRendezVous;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -61,9 +62,10 @@ class PatientController extends Controller
             return redirect()->route('home.client');
         }
 
+        $patientRdvAll=patientRendezVous::where('patient_id',$patient->id)->get();
 
 
-        return view('Patient.dashboard', compact('patient'));
+        return view('Patient.dashboard', compact('patient','patientRdvAll'));
     }
 
 
@@ -116,6 +118,48 @@ class PatientController extends Controller
         session()->forget('patient');
         session()->forget('auth');
         return redirect()->route('home.client');
+    }
+
+    public function addDemande(Request $request){
+
+
+        $request->validate([
+            'motif'=>'required',
+            'id'=>'required|exists:patients,id',
+        ]);
+
+        $todayCount = patientRendezVous::where('patient_id', $request->id)
+        ->whereDate('created_at', date('Y-m-d'))
+        ->count();
+
+    if ($todayCount >= 1) {
+        toastr()->error('Vous avez déjà fait deux demandes aujourd\'hui.');
+        return back();
+    }
+        $rendez_vous=new patientRendezVous();
+        $rendez_vous->motif=$request->motif;
+        $rendez_vous->patient_id=$request->id;
+        $rendez_vous->heure='';
+        $rendez_vous->status='En-cours';
+        $rendez_vous->save();
+        toastr()->info('Votre demande à été envoyé ');
+        return back();
+
+    }
+
+    public function updateMotif(Request $request){
+        $request->validate([
+              'motif'=>'required',
+              'id'=>'required|exists:patients,id'
+        ]);
+
+        $patient=patientRendezVous::find($request->id);
+        $patient->motif=$request->motif;
+        $patient->touch();
+        $patient->save();
+        toastr()->info('Motif mise à jour avec succèss !');
+
+        return back();
     }
 
 }

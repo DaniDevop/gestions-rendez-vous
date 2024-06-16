@@ -14,4 +14,10 @@ class Medecin extends Model
     public function emploie_temps():HasMany{
         return $this->hasMany(EmploieTemps::class);
     }
+
+
+    public function patientRendezVous():HasMany{
+
+        return $this->hasMany(patientRendezVous::class);
+    }
 }

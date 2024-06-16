@@ -5,6 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 @include('Patient.template.head')
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <body id="welcome">
 
 	<aside class="left-sidebar">
@@ -60,11 +63,22 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Faire la demande</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+            <form action="{{route('addDemande.patient')}}" method="POST">
+                @csrf
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Motif</label>
+                  <input type="text" name="motif" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+
+                    <input type="hidden"  name="id" value="{{$patient->id}}" class="form-control" id="exampleInputPassword1">
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
         </div>
 
       </div>
@@ -75,33 +89,46 @@
 				<table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Numéro</th>
+                        <th scope="col">Motif</th>
+                        <th scope="col">Medecin</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">modifier</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach( $patientRdvAll as $patientRdv)
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row" id="motifId">  {{$patientRdv->id}} </th>
+                        <td id="motifCapte"> {{$patientRdv->motif}}</td>
+                        <td> {{optional($patientRdv->medecin)->nom}}</td>
+                        <td> {{$patientRdv->status}}</td>
+                        <td> <a href="#" class="btn btn-info" id="eventMotif" ><i class="bi bi-pencil-square" ></i></a> </td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                      @endforeach
+
                     </tbody>
                   </table>
 			</section>
+
+
+
+
+
+
+                    <form action="{{route('updateMotif.patient')}}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Motif</label>
+                          <input type="text" name="motif" class="form-control" id="motif" aria-describedby="emailHelp">
+                        </div>
+
+
+                            <input type="hidden"  name="id"  class="form-control" id="motifIdInput">
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+
 
 
 
@@ -163,6 +190,28 @@
     </div>
   </div>
 
+
+  <script>
+var eventMotif = document.getElementById('eventMotif'); // Get the element by ID
+var motifCapte = document.getElementById('motifCapte'); // Get the element by ID
+var motifInput = document.getElementById('motif'); // Get the motif input by ID
+var motifId = document.getElementById('motifId'); // Get the motif input by ID
+var motifIdInput= document.getElementById('motifIdInput');
+
+eventMotif.addEventListener('click', function(e) {
+  e.preventDefault(); // Prevent default behavior (likely a link following)
+
+  var motifValue = motifCapte.textContent.trim(); 
+   var id= motifId.textContent.trim()
+
+
+  motifInput.value = motifValue;
+  motifIdInput.value=id;
+
+});
+
+
+  </script>
 
 		</body>
 		</html>

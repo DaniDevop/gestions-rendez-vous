@@ -29,6 +29,8 @@ Route::post('/patient/login-patient', [PatientController::class, 'loginPatient']
 Route::middleware(['auth.patient'])->group(function(){
     Route::get('/patient/dashboard', [PatientController::class, 'dashboard'])->name('dashboard.client');
     Route::post('/patient/dashboard/update-account', [PatientController::class, 'updateccountPatient'])->name('updateccount.Patient');
+    Route::post('/patient/dashboard/demande-patient', [PatientController::class, 'addDemande'])->name('addDemande.patient');
+    Route::post('/patient/dashboard/update-motif', [PatientController::class, 'updateMotif'])->name('updateMotif.patient');
 
     Route::get('/patient/dashboard/logout-patient', [PatientController::class, 'logoutPatient'])->name('logout.patient');
 
