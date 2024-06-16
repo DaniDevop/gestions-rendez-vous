@@ -69,4 +69,11 @@ class AdminController extends Controller
         return back();
 
     }
+
+    public function logoutUsers(){
+
+        Auth::logout();
+
+        return view('Admin.login');
+    }
 }

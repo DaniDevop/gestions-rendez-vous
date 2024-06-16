@@ -40,6 +40,8 @@ Route::middleware([ 'auth.users'])->group(function () {
     Route::post('/updateEmploie', [AppointmentControllers::class, 'update']);
 
 
+
+    Route::get('/logoutUsers',[AdminController::class,'logoutUsers'])->name('logout.users');
     Route::get('/listesUsers', [AdminController::class, 'users'])->name('listes.users');
 
     Route::post('/users/addUsers', [AdminController::class, 'addUser'])->name('add.users');
