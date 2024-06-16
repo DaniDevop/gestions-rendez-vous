@@ -7,7 +7,10 @@ use App\Http\Requests\UsersRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Medecin;
+use App\Models\patientRendezVous;
 use Illuminate\Support\Facades\Auth;
+
 class AdminController extends Controller
 {
     //
@@ -22,7 +25,10 @@ class AdminController extends Controller
 
     public function home(){
 
-        return view('Admin.index');
+        $usersAll=User::all()->count();
+        $medecinAll=Medecin::all()->count();
+        $demandeAll=patientRendezVous::all()->count();
+        return view('Admin.index',compact('usersAll','medecinAll','demandeAll'))    ;
     }
 
 
@@ -111,7 +117,7 @@ class AdminController extends Controller
         ]);
 
         if( $usersRequest->password !=  $usersRequest->password_confirm){
-          
+
             toastr()->error('Les mots de passes doivent etre identique 🛑 !');
         return back();
         }
