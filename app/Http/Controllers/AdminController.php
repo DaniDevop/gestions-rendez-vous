@@ -28,7 +28,10 @@ class AdminController extends Controller
         $usersAll=User::all()->count();
         $medecinAll=Medecin::all()->count();
         $demandeAll=patientRendezVous::all()->count();
-        return view('Admin.index',compact('usersAll','medecinAll','demandeAll'))    ;
+
+        $demandePatient=patientRendezVous::orderBy('id','desc')->get();
+
+        return view('Admin.index',compact('usersAll','medecinAll','demandeAll','demandePatient'))    ;
     }
 
 
