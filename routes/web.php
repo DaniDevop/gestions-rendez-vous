@@ -24,8 +24,13 @@ Route::post('/Authentification/users', [AdminController::class, 'doLogin'])->nam
 
 Route::get('/patient/home', [PatientController::class, 'home'])->name('home.client');
 Route::post('/patient/create-account', [PatientController::class, 'addAccountPatient'])->name('add.account.patient');
-Route::post('/patient/clogin-patient', [PatientController::class, 'loginPatient'])->name('login.patient');
+Route::post('/patient/login-patient', [PatientController::class, 'loginPatient'])->name('login.patient');
 
+Route::middleware(['auth.patient'])->group(function(){
+    Route::get('/patient/dashboard', [PatientController::class, 'dashboard'])->name('dashboard.client');
+
+
+});
 Route::middleware([ 'auth.users'])->group(function () {
 
     Route::get('/ajouterMedecin',[MedecinController::class,'addMedecin']);
