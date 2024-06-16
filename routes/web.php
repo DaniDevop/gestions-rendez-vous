@@ -23,6 +23,7 @@ Route::get('/Authentification', [AdminController::class, 'login_users'])->name('
 Route::post('/Authentification/users', [AdminController::class, 'doLogin'])->name('doLogin.users');
 
 Route::get('/patient/home', [PatientController::class, 'home'])->name('home.client');
+Route::post('/patient/create-account', [PatientController::class, 'addAccountPatient'])->name('add.account.patient');
 
 Route::middleware([ 'auth.users'])->group(function () {
 

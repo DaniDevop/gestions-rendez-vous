@@ -52,8 +52,8 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        
-                                           
+
+
                                         <li><a href="contact.html">Login</a></li>
                                     </ul>
                                 </nav>
@@ -77,6 +77,16 @@
     <!-- header-end -->
 
     <!-- slider_area_start -->
+
+    @if ($errors->any())
+    <div >
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li class="alert alert-danger">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="slider_area">
         <div class="slider_active owl-carousel">
             <div class="single_slider  d-flex align-items-center slider_bg_2">
@@ -202,7 +212,7 @@
     <!-- welcome_docmed_area_end -->
 
     <!-- offers_area_start -->
-    
+
     <!-- offers_area_end -->
 
     <!-- testmonial_area_start -->
@@ -374,7 +384,7 @@
     <!-- business_expert_area_end  -->
 
 
- 
+
     <!-- Emergency_contact start -->
     <div class="Emergency_contact">
         <div class="conatiner-fluid p-0">
@@ -444,8 +454,8 @@
 
                             </div>
                         </div>
-                       
-                       
+
+
                         <div class="col-xl-3 col-md-6 col-lg-3">
                             <div class="footer_widget">
                                 <h3 class="footer_title">
@@ -479,16 +489,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- footer end  -->
     <!-- link that opens popup -->
 
+
     <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
+    <form id="test-form" class="white-popup-block mfp-hide" action="{{route('add.account.patient')}}" method="POST">
         <div class="popup_box ">
             <div class="popup_inner">
                 <h3>Creation-de-compte</h3>
-                <form action="#">
+
+                    @csrf
                     <div class="row">
-                        
+
                         <div class="col-xl-6">
                             <input type="text"  name="nom" placeholder="NOM" required>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <input type="text"  name="prenom" placeholder="Prenom" required>
                         </div>
                         <div class="col-xl-6">
                             <input type="text" name="tel"  placeholder="Téléphone" required>
@@ -504,7 +520,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <input type="password" name="password"  placeholder="Mot de passe" required>
                         </div>
                         <div class="col-xl-12">
-                            <input type="password" name="pssword_confirm"  placeholder="Confirmation de mot de passe" required>
+                            <input type="password" name="password_confirm"  placeholder="Confirmation de mot de passe" required>
                         </div>
 
                         <div class="col-xl-12">
