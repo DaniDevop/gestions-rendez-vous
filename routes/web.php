@@ -46,6 +46,7 @@ Route::middleware([ 'auth.users'])->group(function () {
 
     Route::post('/users/addUsers', [AdminController::class, 'addUser'])->name('add.users');
     Route::post('/users/update-profile', [AdminController::class, 'updateUser'])->name('update.user');
+    Route::post('/users/update-password', [AdminController::class, 'updatepasswordUser'])->name('update.password.users');
 
 
 });

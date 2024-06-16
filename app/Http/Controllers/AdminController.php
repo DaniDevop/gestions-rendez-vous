@@ -99,6 +99,32 @@ class AdminController extends Controller
 
     }
 
+
+
+    public function updatepasswordUser(Request $usersRequest){
+
+
+        $usersRequest->validate([
+                'password'=>'required',
+                'password_confirm'=>'required',
+                'id'=>'required|exists:users,id',
+        ]);
+
+        if( $usersRequest->password !=  $usersRequest->password_confirm){
+          
+            toastr()->error('Les mots de passes doivent etre identique 🛑 !');
+        return back();
+        }
+
+        $users=User::find($usersRequest->id);
+        $users->password=Hash::make($usersRequest->password);
+
+        $users->save();
+        toastr()->info('Mots de passes mises à jours avec  succèss !!');
+        return back();
+
+    }
+
     public function logoutUsers(){
 
         Auth::logout();
