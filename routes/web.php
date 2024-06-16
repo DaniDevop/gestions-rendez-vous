@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AppointmentControllers;
 use App\Http\Controllers\MedecinController;
+use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/Authentification', [AdminController::class, 'login_users'])->name('login.users');
 Route::post('/Authentification/users', [AdminController::class, 'doLogin'])->name('doLogin.users');
+
+Route::get('/patient/home', [PatientController::class, 'home'])->name('home.client');
 
 Route::middleware([ 'auth.users'])->group(function () {
 
