@@ -52,22 +52,9 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
-                                        <li><a href="Department.html">Department</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                                <li><a href="about.html">about</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="Doctors.html">Doctors</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        
+                                           
+                                        <li><a href="contact.html">Login</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -75,7 +62,7 @@
                         <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="Appointment">
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="popup-with-form" href="#test-form">Make an Appointment</a>
+                                    <a class="popup-with-form" href="#test-form">Creer-un-compte</a>
                                 </div>
                             </div>
                         </div>
@@ -215,93 +202,7 @@
     <!-- welcome_docmed_area_end -->
 
     <!-- offers_area_start -->
-    <div class="our_department_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-55">
-                        <h3>Our Departments</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. <br>
-                            It esteems luckily or picture placing drawing. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Eye Care</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/2.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Physical Therapy</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/3.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Dental Care</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/4.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Diagnostic Test</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/5.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Skin Surgery</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/6.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Surgery Service</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                            <a href="#" class="learn_more">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- offers_area_end -->
 
     <!-- testmonial_area_start -->
@@ -473,80 +374,7 @@
     <!-- business_expert_area_end  -->
 
 
-    <!-- expert_doctors_area_start -->
-    <div class="expert_doctors_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="doctors_title mb-55">
-                        <h3>Expert Doctors</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="expert_active owl-carousel">
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/1.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/2.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/3.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/4.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/1.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                        <div class="single_expert">
-                            <div class="expert_thumb">
-                                <img src="img/experts/2.png" alt="">
-                            </div>
-                            <div class="experts_name text-center">
-                                <h3>Mirazul Alom</h3>
-                                <span>Neurologist</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- expert_doctors_area_end -->
-
+ 
     <!-- Emergency_contact start -->
     <div class="Emergency_contact">
         <div class="conatiner-fluid p-0">
@@ -616,35 +444,8 @@
 
                             </div>
                         </div>
-                        <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Departments
-                                </h3>
-                                <ul>
-                                    <li><a href="#">Eye Care</a></li>
-                                    <li><a href="#">Skin Care</a></li>
-                                    <li><a href="#">Pathology</a></li>
-                                    <li><a href="#">Medicine</a></li>
-                                    <li><a href="#">Dental</a></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-6 col-lg-2">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                        Useful Links
-                                </h3>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#"> Contact</a></li>
-                                    <li><a href="#"> Appointment</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                       
+                       
                         <div class="col-xl-3 col-md-6 col-lg-3">
                             <div class="footer_widget">
                                 <h3 class="footer_title">
@@ -682,40 +483,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <form id="test-form" class="white-popup-block mfp-hide">
         <div class="popup_box ">
             <div class="popup_inner">
-                <h3>Make an Appointment</h3>
+                <h3>Creation-de-compte</h3>
                 <form action="#">
                     <div class="row">
+                        
                         <div class="col-xl-6">
-                            <input id="datepicker" placeholder="Pick date">
+                            <input type="text"  name="nom" placeholder="NOM" required>
                         </div>
                         <div class="col-xl-6">
-                            <input id="datepicker2" placeholder="Suitable time">
-                        </div>
-                        <div class="col-xl-6">
-                            <select class="form-select wide" id="default-select" class="">
-                                <option data-display="Select Department">Department</option>
-                                <option value="1">Eye Care</option>
-                                <option value="2">Physical Therapy</option>
-                                <option value="3">Dental Care</option>
-                            </select>
-                        </div>
-                        <div class="col-xl-6">
-                            <select class="form-select wide" id="default-select" class="">
-                                <option data-display="Doctors">Doctors</option>
-                                <option value="1">Mirazul Alom</option>
-                                <option value="2">Monzul Alom</option>
-                                <option value="3">Azizul Isalm</option>
-                            </select>
-                        </div>
-                        <div class="col-xl-6">
-                            <input type="text"  placeholder="Name">
-                        </div>
-                        <div class="col-xl-6">
-                            <input type="text"  placeholder="Phone no.">
+                            <input type="text" name="tel"  placeholder="Téléphone" required>
                         </div>
                         <div class="col-xl-12">
-                            <input type="email"  placeholder="Email">
+                            <input type="email" name="email"  placeholder="Email" required>
                         </div>
+
+                        <div class="col-xl-12">
+                            <input type="text" name="adresse"  placeholder="Adresse : Ex: Fass">
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="password" name="password"  placeholder="Mot de passe" required>
+                        </div>
+                        <div class="col-xl-12">
+                            <input type="password" name="pssword_confirm"  placeholder="Confirmation de mot de passe" required>
+                        </div>
+
                         <div class="col-xl-12">
                             <button type="submit" class="boxed-btn3">Confirm</button>
                         </div>
