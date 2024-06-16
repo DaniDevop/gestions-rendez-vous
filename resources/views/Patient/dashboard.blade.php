@@ -19,7 +19,7 @@
 				<li><a href="#css-structure"> <i class="bi bi-envelope-at"></i> Messages</a></li>
 
 				<li><a href="#credit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update compte</a></li>
-                <li><a href="#credit">Deconnection</a></li>
+                <li><a href="{{route('logout.patient')}}">Deconnection</a></li>
 			</ul>
 		</nav>
 	</aside>
@@ -36,7 +36,6 @@
 					<p>Date :{{date('Y-m-d')}} </p>
 
 					<p>Listes des rendez-vous</p>
-
 
 
                         @if ($errors->any())

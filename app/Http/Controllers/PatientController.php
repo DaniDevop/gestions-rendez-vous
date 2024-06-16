@@ -110,4 +110,12 @@ class PatientController extends Controller
         return back();
     }
 
+
+    public function logoutPatient(){
+
+        session()->forget('patient');
+        session()->forget('auth');
+        return redirect()->route('home.client');
+    }
+
 }
