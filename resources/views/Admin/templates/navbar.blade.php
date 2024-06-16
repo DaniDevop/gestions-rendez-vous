@@ -150,7 +150,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="{{asset('storage/'.Auth::user()->name)}}"  alt="">
+                    <img class="img-xs rounded-circle" src="{{asset('storage/'.Auth::user()->profil)}}"  alt="">
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">{{Auth::user()->name}}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
@@ -165,7 +165,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="preview-subject mb-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -189,5 +189,51 @@
             </button>
           </div>
         </nav>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="forms-sample" method="POST" action="{{route('update.user')}}" enctype="multipart/form-data">
+                @csrf
+              <div class="form-group">
+                <label for="exampleInputUsername1">Nom</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" value="{{Auth::user()->name}}" name="name" placeholder="Nom">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputUsername1">Prenom</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" value="{{Auth::user()->prenom}}" name="prenom" placeholder="Prenom">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" value="{{Auth::user()->email}}" name="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Piece</label>
+                <input type="file" class="form-control" id="exampleInputPassword1" name="profil" >
+              </div>
+
+              <input type="hidden" class="form-control" id="exampleInputEmail1" value="{{Auth::user()->id}}" name="id" placeholder="Email">
+
+
+              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
 
     @endauth

@@ -9,7 +9,7 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="{{asset('storage/'.Auth::user()->name)}}" alt="">
+                  <img class="img-xs rounded-circle " src="{{asset('storage/'.Auth::user()->profil)}}" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">

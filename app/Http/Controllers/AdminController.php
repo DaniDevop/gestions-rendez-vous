@@ -70,6 +70,35 @@ class AdminController extends Controller
 
     }
 
+
+
+    public function updateUser(Request $usersRequest){
+
+
+        $usersRequest->validate([
+                'name'=>'required',
+                'prenom'=>'required',
+                'email'=>'nullable|email',
+                'id'=>'required|exists:users,id',
+        ]);
+
+        $users=User::find($usersRequest->id);
+
+
+        $users->name=$usersRequest->name;
+        $users->email=$usersRequest->email ?:"";
+        $users->prenom=$usersRequest->prenom;
+
+        if($usersRequest->hasFile('profil')){
+            $users->profil=$usersRequest->file('profil')->store('users','public');
+        }
+
+        $users->save();
+        toastr()->info('Profile mise à jour avec succèss  !');
+        return back();
+
+    }
+
     public function logoutUsers(){
 
         Auth::logout();
