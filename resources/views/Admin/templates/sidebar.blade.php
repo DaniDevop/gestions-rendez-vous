@@ -18,7 +18,7 @@
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
-             
+
             </div>
           </li>
           <li class="nav-item nav-category">
@@ -90,11 +90,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputUsername1">Password-confirm</label>
-                    <input type="password" class="form-control" id="exampleInputUsername1"  name="password_confirm" required>
+                    <label for="exampleInputUsername12">Password-confirm</label>
+                    <input type="password" class="form-control" id="exampleInputUsername12"  name="password_confirm" required>
                   </div>
 
-                  <input type="hidden" class="form-control" id="exampleInputEmail1" value="{{Auth::user()->id}}" name="id" placeholder="Email">
+                  <input type="hidden" class="form-control" id="exampleInputEmail13" value="{{Auth::user()->id}}" name="id" placeholder="Email">
 
                   <button type="submit" class="btn btn-primary mr-2">Submit</button>
 

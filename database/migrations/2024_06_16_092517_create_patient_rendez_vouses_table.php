@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('motif');
             $table->string('status');
             $table->string('heure');
+            $table->string('date')->nullable();
             $table->foreignIdFor(Patient::class);
             $table->foreignIdFor(Medecin::class)->nullable();
             $table->timestamps();

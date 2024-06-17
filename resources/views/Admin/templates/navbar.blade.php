@@ -206,22 +206,22 @@
                 @csrf
               <div class="form-group">
                 <label for="exampleInputUsername1">Nom</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" value="{{Auth::user()->name}}" name="name" placeholder="Nom">
+                <input type="text" class="form-control" id="exampleInputUsername122" value="{{Auth::user()->name}}" name="name" placeholder="Nom">
               </div>
               <div class="form-group">
-                <label for="exampleInputUsername1">Prenom</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" value="{{Auth::user()->prenom}}" name="prenom" placeholder="Prenom">
+                <label for="exampleInputUsername122">Prenom</label>
+                <input type="text" class="form-control" id="exampleInputUsername12E" value="{{Auth::user()->prenom}}" name="prenom" placeholder="Prenom">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" value="{{Auth::user()->email}}" name="email" placeholder="Email">
+                <label for="exampleInputEmail12">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail12" value="{{Auth::user()->email}}" name="email" placeholder="Email">
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Piece</label>
-                <input type="file" class="form-control" id="exampleInputPassword1" name="profil" >
+                <label for="exampleInputPassword13">Piece</label>
+                <input type="file" class="form-control" id="exampleInputPassword13" name="profil" >
               </div>
 
-              <input type="hidden" class="form-control" id="exampleInputEmail1" value="{{Auth::user()->id}}" name="id" placeholder="Email">
+              <input type="hidden" class="form-control" id="exampleInputEmail133" value="{{Auth::user()->id}}" name="id" placeholder="Email">
 
 
               <button type="submit" class="btn btn-primary mr-2">Submit</button>

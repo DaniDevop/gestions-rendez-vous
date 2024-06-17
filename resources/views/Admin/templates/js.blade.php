@@ -1,4 +1,5 @@
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+@livewireScripts
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="assets/vendors/chart.js/Chart.min.js"></script>
