@@ -30,6 +30,7 @@ class ListeDemandePatient extends Component
 
     public function mount()
     {
+        
         $this->demandePatient = PatientRendezVous::orderBy('id', 'desc')->get();
         $this->medecinAll = Medecin::all();
     }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\patientRendezVous;
 use Livewire\Component;
+use Livewire\Livewire;
 
 class ListeRendezVousPatient extends Component
 {
@@ -22,31 +23,19 @@ class ListeRendezVousPatient extends Component
            'motif'=>$patientRdv->motif,
            'id'=>$patientRdv->id,
         ];
-
-
-
-
         $this->editLine=true;
     }
 
 
 
-    public function rules(){
-        return [
-             'motif'=>'required',
-             'id'=>'required|exists:patient_rendez_vouses,id'
-        ];
-    }
-
     public function save(){
-
 
         $patientRdv=patientRendezVous::find($this->motifRaw['id']);
         if(! $patientRdv ){
             toastr()->error("Une erreur c est produite !");
             return;
         }
-        
+
         $patientRdv->motif=$this->motifRaw['motif'];
         $patientRdv->save();
         toastr()->success("Motif modifié avec succèss");
@@ -57,12 +46,28 @@ class ListeRendezVousPatient extends Component
     }
 
 
+    public function annuleRdv($id){
+        $patientRdv=patientRendezVous::find($id);
+        if(!$patientRdv){
+            toastr()->error('Prise de rendevous inexistant ! ');
+            return ;
+        }
+        $patientRdv->delete();
+         // Assuming IDs are unique
+        $this->patientRdvAll=patientRendezVous::where('patient_id',$this->idPatient)->get();
+        toastr()->success("info rendez-vous annuler! ");
+
+    }
+
+
     public function mount($idPatient=null){
         $this->idPatient=$idPatient;
 
         $this->patientRdvAll=patientRendezVous::where('patient_id',$this->idPatient)->get();
 
     }
+
+
     public function render()
     {
         return view('livewire.liste-rendez-vous-patient',[

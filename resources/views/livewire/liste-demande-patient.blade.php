@@ -34,17 +34,17 @@
             @else
                 <tr>
                     <td><span class="pl-2">{{ $selectedRendezVous['nom'] }}</span></td>
-                    <td><input type="date" name="date" wire:model="date"></td>
-                    <td><input type="time" name="heure" wire:model="heure"></td>
+                    <td><input type="date" name="date" wire:model.defer="date"></td>
+                    <td><input type="time" name="heure" wire:model.defer="heure"></td>
                     <td>
-                        <select name="medecin_id" wire:model="medecin_id">
+                        <select name="medecin_id" wire:model.defer="medecin_id">
                             @foreach($medecinAll as $medecin)
                                 <option value="{{ $medecin->id }}">{{ $medecin->nom }}</option>
                             @endforeach
                         </select>
                     </td>
                     <td>
-                        <button class="badge badge-outline-success" wire:click.prevent="save">Valider</button>
+                        <button class="badge badge-outline-success" wire:click="save">Valider</button>
                     </td>
                 </tr>
             @endif

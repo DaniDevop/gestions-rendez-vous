@@ -86,7 +86,7 @@
   </div>
 
 
-              <livewire:liste-rendez-vous-patient :idPatient="$patient->id"/>
+              <livewire:liste-rendez-vous-patient :idPatient="$patient->id" />
 
 
 
