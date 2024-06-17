@@ -63,6 +63,7 @@ class ListeDemandePatient extends Component
             $patient->date = $this->date;
             $patient->heure = $this->heure;
             $patient->medecin_id = $this->medecin_id;
+            $patient->status = "Valider";
             $patient->touch();
             $patient->save();
 
@@ -78,7 +79,7 @@ class ListeDemandePatient extends Component
     }
 
     public function render()
-    {   
+    {
         return view('livewire.liste-demande-patient', [
             'demandePatient' => $this->demandePatient,
             'medecinAll' => $this->medecinAll

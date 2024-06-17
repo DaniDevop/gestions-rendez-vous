@@ -70,12 +70,12 @@
             <form action="{{route('addDemande.patient')}}" method="POST">
                 @csrf
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Motif</label>
-                  <input type="text" name="motif" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <label for="exampleInputEmail16" class="form-label">Motif</label>
+                  <input type="text" name="motif" class="form-control"  id="exampleInputEmail16" required>
                 </div>
 
 
-                    <input type="hidden"  name="id" value="{{$patient->id}}" class="form-control" id="exampleInputPassword1">
+                    <input type="hidden"  name="id" value="{{$patient->id}}" class="form-control" id="exampleInputPassword8">
 
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -85,49 +85,8 @@
     </div>
   </div>
 
-			<section id="tmpl-structure">
-				<table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Numéro</th>
-                        <th scope="col">Motif</th>
-                        <th scope="col">Medecin</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">modifier</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @foreach( $patientRdvAll as $patientRdv)
-                      <tr>
-                        <th scope="row" id="motifId">  {{$patientRdv->id}} </th>
-                        <td id="motifCapte"> {{$patientRdv->motif}}</td>
-                        <td> {{optional($patientRdv->medecin)->nom}}</td>
-                        <td> {{$patientRdv->status}}</td>
-                        <td> <a href="#" class="btn btn-info" id="eventMotif" ><i class="bi bi-pencil-square" ></i></a> </td>
-                      </tr>
-                      @endforeach
 
-                    </tbody>
-                  </table>
-			</section>
-
-
-
-
-
-
-                    <form action="{{route('updateMotif.patient')}}" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Motif</label>
-                          <input type="text" name="motif" class="form-control" id="motif" aria-describedby="emailHelp">
-                        </div>
-
-
-                            <input type="hidden"  name="id"  class="form-control" id="motifIdInput">
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
+              <livewire:liste-rendez-vous-patient :idPatient="$patient->id"/>
 
 
 
@@ -152,32 +111,32 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Prenom</label>
-                    <input type="text" name="prenom" class="form-control" value="{{$patient->prenom}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail12" class="form-label">Prenom</label>
+                    <input type="text" name="prenom" class="form-control" value="{{$patient->prenom}}" id="exampleInputEmail12" aria-describedby="emailHelp">
 
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" value="{{$patient->email}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail13" class="form-label">Email</label>
+                        <input type="text" name="email" class="form-control" value="{{$patient->email}}" id="exampleInputEmail13" aria-describedby="emailHelp">
                       </div>
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Teléphoné</label>
-                    <input type="text" name="tel" class="form-control" value="{{$patient->tel}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail14" class="form-label">Teléphoné</label>
+                    <input type="text" name="tel" class="form-control" value="{{$patient->tel}}" id="exampleInputEmail14" aria-describedby="emailHelp">
                   </div>
 
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Adresse</label>
-                    <input type="text" name="adresse" class="form-control" value="{{$patient->adresse}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail15" class="form-label">Adresse</label>
+                    <input type="text" name="adresse" class="form-control" value="{{$patient->adresse}}" id="exampleInputEmail15" aria-describedby="emailHelp">
                   </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password <span style="color:red">NB:(Si vous voules garder l anciens mots de passes laisser le champs vide)</span> </label>
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                  <label for="exampleInputPassword16" class="form-label">Password <span style="color:red">NB:(Si vous voules garder l anciens mots de passes laisser le champs vide)</span> </label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword16">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password-confirmation</label>
-                    <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword1">
+                    <label for="exampleInputPassword17" class="form-label">Password-confirmation</label>
+                    <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword17">
                   </div>
-                    <input type="hidden"  name="id" value="{{$patient->id}}" class="form-control" id="exampleInputPassword1">
+                    <input type="hidden"  name="id" value="{{$patient->id}}" class="form-control" id="exampleInputPassword199">
 
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -191,27 +150,7 @@
   </div>
 
 
-  <script>
-var eventMotif = document.getElementById('eventMotif'); // Get the element by ID
-var motifCapte = document.getElementById('motifCapte'); // Get the element by ID
-var motifInput = document.getElementById('motif'); // Get the motif input by ID
-var motifId = document.getElementById('motifId'); // Get the motif input by ID
-var motifIdInput= document.getElementById('motifIdInput');
-
-eventMotif.addEventListener('click', function(e) {
-  e.preventDefault(); // Prevent default behavior (likely a link following)
-
-  var motifValue = motifCapte.textContent.trim(); 
-   var id= motifId.textContent.trim()
-
-
-  motifInput.value = motifValue;
-  motifIdInput.value=id;
-
-});
-
-
-  </script>
+  @livewireScripts
 
 		</body>
 		</html>
