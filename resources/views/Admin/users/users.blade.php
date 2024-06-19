@@ -47,6 +47,13 @@
                     </p>
                     <div class="table-responsive">
                       <table class="table table-striped">
+
+                        <form action="{{route('search.users')}}" method="POST">
+                            @csrf
+                           
+                            <input type="text" name="value" placeholder="Recherche ..." required>
+                            <button type="submit" class="btn btn-info">Valider</button>
+                          </form>
                         <thead>
                           <tr>
                             <th> Profile </th>

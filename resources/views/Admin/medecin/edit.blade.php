@@ -130,7 +130,7 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    @include('templates.js')
+    @include('Admin.templates.js')
 
   </body>
 </html>

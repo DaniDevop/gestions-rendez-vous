@@ -18,7 +18,25 @@ class AdminController extends Controller
 
     public function users(){
 
-        $usersAll=User::orderBy('id','DESC')->get();
+        $usersAll=User::orderBy('id','DESC')->paginate();
+        return view('Admin.users.users',compact('usersAll'));
+    }
+
+
+    public function search(Request $request){
+
+        $value=$request->validate([
+            'value'=>'required'
+        ]);
+        
+        $search = $request->value;
+
+       
+
+        $usersAll=User::where('name', 'like', '%'.$search.'%')->orWhere('prenom', 'like', '%'.$search.'%')
+        ->orwhere('email', 'like', '%'.$search.'%')
+        ->paginate(5);
+
         return view('Admin.users.users',compact('usersAll'));
     }
 

@@ -44,8 +44,9 @@ Route::middleware([ 'auth.users'])->group(function () {
     Route::get('/editMedecin/{id}',[MedecinController::class,'detailsMedecin'])->name('edit.medecin');
     Route::get('/specialite',[MedecinController::class,'listeSpecialite'])->name('liste.Specialite');
     Route::post('/addSpecialte',[MedecinController::class,'addSpecialite'])->name('add.Specialite');
-
+    Route::post('/rechercheMedecin',[MedecinController::class,'search'])->name('search.medecin');
     Route::post('/updateMedecin',[MedecinController::class,'update']);
+    Route::post('/searcheSpecialite',[MedecinController::class,'searchSpecialite'])->name('search.Specialite');
 
     Route::get('/', [AdminController::class, 'home'])->name('home');
     Route::get('/callendarMedecin', [AppointmentController::class, 'index']);
@@ -63,5 +64,6 @@ Route::middleware([ 'auth.users'])->group(function () {
     Route::post('/users/update-profile', [AdminController::class, 'updateUser'])->name('update.user');
     Route::post('/users/update-password', [AdminController::class, 'updatepasswordUser'])->name('update.password.users');
 
+    Route::post('/users/recherche-users', [AdminController::class, 'search'])->name('search.users');
 
 });

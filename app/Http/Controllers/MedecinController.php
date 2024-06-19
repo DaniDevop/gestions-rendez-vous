@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MedecinRequest;
 use App\Http\Requests\SpetialiteRequest;
 use App\Models\Medecin;
 use App\Models\Specialite;
@@ -16,7 +17,7 @@ class MedecinController extends Controller
         return view("Admin.medecin.ajouter");
     }
 
-    public function store(Request $request){
+    public function store(MedecinRequest $request){
 
         $medecin=new Medecin();
         $imagePath="";
@@ -56,7 +57,7 @@ class MedecinController extends Controller
 
     public function listesMedecin(){
 
-    $medecinAll=Medecin::all();
+    $medecinAll=Medecin::paginate(5);
         return view("Admin.medecin.listes",compact('medecinAll'));
     }
 
@@ -73,7 +74,23 @@ class MedecinController extends Controller
 
 
     public function listeSpecialite(){
-        $spetialiteAll=Specialite::orderBy('id','DESC')->get();
+        $spetialiteAll=Specialite::orderBy('id','DESC')->paginate(5);
+        return view("Admin.Spetialite.listes",compact('spetialiteAll'));
+
+    }
+
+
+    public function searchSpecialite(Request $request){
+
+        $request->validate([
+           'value'=>'required' 
+        ]);
+
+        $spetialiteAll=Specialite::where('nom', 'like', '%'.$request->value.'%')
+        ->orWhere('status', 'like', '%'.$request->value.'%')
+        ->orWhere('created_at', 'like', '%'.$request->value.'%')
+        ->orWhere('updated_at', 'like', '%'.$request->value.'%')
+        ->paginate(5);
         return view("Admin.Spetialite.listes",compact('spetialiteAll'));
 
     }
@@ -87,6 +104,23 @@ class MedecinController extends Controller
         $spetialiteAll->save();
         flash()->success('Specialite ajoute avec success !.');
         return back();
+    }
+
+    public function search(Request $request){
+
+        $value=$request->validate([
+            'value'=>'required'
+        ]);
+        
+        $search = $request->value;
+
+       
+
+        $medecinAll=Medecin::where('nom', 'like', '%'.$search.'%')->orWhere('prenom', 'like', '%'.$search.'%')
+        ->orwhere('email', 'like', '%'.$search.'%')
+        ->orWhere('tel', 'like', '%'.$search.'%')->paginate(5);
+
+        return view("Admin.medecin.listes",compact('medecinAll'));
     }
 
 

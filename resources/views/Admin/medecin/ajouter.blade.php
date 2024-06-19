@@ -18,9 +18,7 @@
             <div class="page-header">
               <h3 class="page-title"> Ajouter medecin </h3>
               <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Formulaire</a></li>
-                </ol>
+                
               </nav>
             </div>
 
@@ -37,8 +35,10 @@
             <div class="row">
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body">
+                    <div class="card-body" style="display: flex; justify-content: center; align-items: center; min-height: 300px;">
 
+                  <div class="card-body">
+                   
                     <form class="forms-sample" method="POST" action="/storeMedecin" enctype="multipart/form-data">
                         @csrf
                       <div class="form-group">
@@ -64,6 +64,7 @@
 
                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     </form>
+                    </div>
                   </div>
                 </div>
               </div>

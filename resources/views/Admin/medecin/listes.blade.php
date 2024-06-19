@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
  
-@include('templates.head')
+@include('Admin.templates.head')
 
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
-    @include('templates.sidebar')
+    @include('Admin.templates.sidebar')
 
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_navbar.html -->
-      @include('templates.navbar')
+      @include('Admin.templates.navbar')
 
         <!-- partial -->
         <div class="main-panel">
@@ -25,7 +25,12 @@
             </div>
             <div class="row">
              
-              
+              <form action="{{route('search.medecin')}}" method="POST">
+                @csrf
+               
+                <input type="text" name="value" placeholder="Recherche ..." required>
+                <button type="submit" class="btn btn-info">Valider</button>
+              </form>
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -62,6 +67,7 @@
                         </tbody>
                       </table>
                     </div>
+                    {{$medecinAll->links()}}
                   </div>
                 </div>
               </div>
@@ -84,7 +90,7 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    @include('templates.js')
+    @include('Admin.templates.js')
 
   </body>
 </html>

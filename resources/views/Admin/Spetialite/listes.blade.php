@@ -41,12 +41,21 @@
                   </button></br>
 
 
+                 
+
+
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     </p>
                     <div class="table-responsive">
                       <table class="table table-striped">
+                        <form action="{{route('search.Specialite')}}" method="POST">
+                            @csrf
+                           
+                            <input type="text" name="value" placeholder="Recherche ..." required>
+                            <button type="submit" class="btn btn-info">Valider</button>
+                          </form>
                         <thead>
                           <tr>
                             <th> Numero </th>
