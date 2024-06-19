@@ -2,7 +2,7 @@
 
      <form wire:submit="search">
         <input type="text" placeholder="Rechercher une valeur ..."  wire:model="query">
-        <button type="submit">Search posts</button>
+        <button type="submit">Recherche rendez-vous</button>
      </form>
     <table class="table">
         <thead>
@@ -16,13 +16,15 @@
         </thead>
         <tbody>
             @foreach($patientRdvAll as $demande)
+            @if($demande->status == "Valider")
                 <tr wire:key="{{ $demande->id }}">
-                    <td><span class="pl-2">{{ $demande->patient->nom }}</span></td>
+                    <td><span class="pl-2">{{ optional($demande->patient)->nom }}</span></td>
                     <td>{{ $demande->motif }}</td>
                     <td>{{ $demande->date }}</td>
                     <td>{{ $demande->heure }}</td>
-                    <td>{{ $demande->medecin->nom }}</td>
+                    <td>{{ optional($demande->medecin)->nom }}</td>
                 </tr>
+                @endif
             @endforeach
         </tbody>
     </table>

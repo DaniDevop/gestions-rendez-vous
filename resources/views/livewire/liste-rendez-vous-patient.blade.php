@@ -1,5 +1,6 @@
 <div>
     <section id="tmpl-structure">
+       
         <table class="table">
             <thead>
               <tr>
@@ -13,6 +14,7 @@
             </thead>
             <tbody>
             @foreach( $patientRdvAll as $patientRdv)
+          
               <tr  wire:key="{{$patientRdv->id }}">
                 <th scope="row" id="motifId">  {{$patientRdv->id}} </th>
                 <td id="motifCapte"> {{$patientRdv->motif}}</td>

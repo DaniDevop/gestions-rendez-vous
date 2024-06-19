@@ -5,10 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Medecin;
 use App\Models\PatientRendezVous;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListeDemandePatient extends Component
 {
-    public $demandePatient = [];
+    use WithPagination;
+
+    
     public $medecinAll = [];
     public $selectedRendezVous = [];
 
@@ -17,7 +20,7 @@ class ListeDemandePatient extends Component
     public $medecin_id = "";
     public $editedRowId = null;
 
-    public $count = 0;
+    public $query = '';
 
     public function rules()
     {
@@ -30,8 +33,6 @@ class ListeDemandePatient extends Component
 
     public function mount()
     {
-        
-        $this->demandePatient = PatientRendezVous::orderBy('id', 'desc')->get();
         $this->medecinAll = Medecin::all();
     }
 
@@ -54,6 +55,11 @@ class ListeDemandePatient extends Component
         }
     }
 
+    public function search()
+    {
+        $this->resetPage();
+    }
+
     public function save()
     {
         $this->validate();
@@ -74,16 +80,15 @@ class ListeDemandePatient extends Component
         }
     }
 
-    public function increment()
-    {
-        $this->count += 1;
-    }
-
     public function render()
     {
-        return view('livewire.liste-demande-patient', [
-            'demandePatient' => $this->demandePatient,
+        $demandePatient = PatientRendezVous::where('motif', 'like', '%'.$this->query.'%')
+            ->orWhere('date', 'like', '%'.$this->query.'%')
+            ->paginate(5);
+
+                   return view('livewire.liste-demande-patient', [
+            'demandePatient' => $demandePatient,
             'medecinAll' => $this->medecinAll
         ]);
     }
-}
+}   

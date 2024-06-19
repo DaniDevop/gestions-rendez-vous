@@ -48,7 +48,7 @@
                     <div class="table-responsive">
                       <table class="table table-striped">
 
-                        <form action="{{route('search.users')}}" method="POST">
+                        <form action="{{route('search.users')}}" method="GET">
                             @csrf
                            
                             <input type="text" name="value" placeholder="Recherche ..." required>
@@ -61,7 +61,7 @@
                             <th> Prenom </th>
                             <th> Email </th>
                             <th> Tel </th>
-                            <th> Details </th>
+                            
                           </tr>
                         </thead>
                         <tbody>
@@ -75,8 +75,8 @@
                             {{$users->prenom}}
                             </td>
                             <td> {{$users->email}} </td>
-                            <td> <a href="" class="btn btn-info"><i class="bi bi-eye"></i></a> </td>
-                            <td> <a href="" class="btn btn-info"><i class="bi bi-eye"></i></a> </td>
+                            <td> {{$users->tel}} </td>
+                            
                           </tr>
                           @endforeach
 

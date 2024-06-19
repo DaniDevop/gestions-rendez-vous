@@ -8,8 +8,7 @@ use Livewire\Livewire;
 
 class ListeRendezVousPatient extends Component
 {
-    public $patientRdvAll=[];
-    public $motifRaw=[];
+     public $motifRaw=[];
 
     public $idPatient;
     public $motif="";
@@ -41,7 +40,7 @@ class ListeRendezVousPatient extends Component
         toastr()->success("Motif modifié avec succèss");
         $this->reset([ 'motif_id', 'motif', 'editLine']);
 
-        $this->patientRdvAll=patientRendezVous::where('patient_id',$this->motifRaw['id'])->get();
+        
 
     }
 
@@ -54,8 +53,12 @@ class ListeRendezVousPatient extends Component
         }
         $patientRdv->delete();
          // Assuming IDs are unique
-        $this->patientRdvAll=patientRendezVous::where('patient_id',$this->idPatient)->get();
+       ;
         toastr()->success("info rendez-vous annuler! ");
+         $patientRdvAll=patientRendezVous::where('patient_id',$this->idPatient)->get();
+        return view('livewire.liste-rendez-vous-patient',[
+            'patientRdvAll'=> $patientRdvAll
+        ]);
 
     }
 
@@ -63,15 +66,16 @@ class ListeRendezVousPatient extends Component
     public function mount($idPatient=null){
         $this->idPatient=$idPatient;
 
-        $this->patientRdvAll=patientRendezVous::where('patient_id',$this->idPatient)->get();
+        
 
     }
 
 
     public function render()
     {
+        $patientRdvAll=patientRendezVous::where('patient_id',$this->idPatient)->get();
         return view('livewire.liste-rendez-vous-patient',[
-            'patientRdvAll'=>$this->patientRdvAll
+            'patientRdvAll'=> $patientRdvAll
         ]);
     }
 }

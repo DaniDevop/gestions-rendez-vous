@@ -1,4 +1,9 @@
 <div>
+    <form wire:submit.prevent="search">
+        <input type="text" placeholder="Rechercher une valeur ..." wire:model="query">
+        <button type="submit">Rechercher</button>
+    </form>
+
     <table class="table">
         <thead>
             <tr>
@@ -20,17 +25,20 @@
         <tbody>
             @if(!$editedRowId)
                 @foreach($demandePatient as $demande)
+                @if($demande->status !== "Valider")
                     <tr wire:key="{{ $demande->id }}">
-                        <td><span class="pl-2">{{ $demande->patient->nom }}</span></td>
+                        <td><span class="pl-2">{{ optional($demande->patient)->nom }}</span></td>
                         <td>{{ $demande->motif }}</td>
                         <td>{{ $demande->created_at }}</td>
-                        <td>{{ $demande->patient->email }}</td>
-                        <td>{{ $demande->patient->tel }}</td>
+                        <td>{{ optional($demande->patient)->email }}</td>
+                        <td>{{ optional($demande->patient)->tel }}</td>
                         <td>
                             <button wire:click.prevent="editRow({{ $demande->id }})" class="badge badge-outline-info">Editer</button>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
+
             @else
                 <tr>
                     <td><span class="pl-2">{{ $selectedRendezVous['nom'] }}</span></td>
@@ -51,4 +59,5 @@
         </tbody>
     </table>
 
+    {{ $demandePatient->links() }}
 </div>
