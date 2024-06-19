@@ -130,7 +130,7 @@ class PatientController extends Controller
 
         $todayCount = patientRendezVous::where('patient_id', $request->id)
         ->whereDate('created_at', date('Y-m-d'))
-        ->count();
+        ->count();  
 
     if ($todayCount >= 1) {
         toastr()->error('Vous avez déjà fait deux demandes aujourd\'hui.');

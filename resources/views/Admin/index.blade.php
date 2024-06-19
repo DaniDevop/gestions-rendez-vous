@@ -55,7 +55,9 @@
 
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                        <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
+                        <i class="icon-lg mdi mdi-doctor text-primary ml-auto"></i>
+
+
                       </div>
                     </div>
                   </div>
@@ -74,7 +76,8 @@
 
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                        <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
+                        <i class="icon-lg mdi mdi-account text-primary ml-auto"></i>
+
                       </div>
                     </div>
                   </div>
@@ -93,7 +96,8 @@
 
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                        <i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
+                        <i class="icon-lg mdi mdi-calendar text-primary ml-auto"></i>
+
                       </div>
                     </div>
                   </div>
@@ -107,6 +111,7 @@
                     <h4 class="card-title" style="color:blue;">Listes des demandes de rendez-vous</h4>
                     <div class="table-responsive">
                      <livewire:liste-demande-patient />
+                    
                     </div>
                   </div>
                 </div>
@@ -114,7 +119,17 @@
             </div>
             <div class="row">
 
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title" style="color:blue;">Listes des demandes de rendez-vous Fixé</h4>
+                        <div class="table-responsive">
 
+                         <livewire:listes-rendez-vous-medecin-patient />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
 
           <!-- content-wrapper ends -->
