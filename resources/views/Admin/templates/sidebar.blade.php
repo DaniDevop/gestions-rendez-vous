@@ -80,25 +80,7 @@
                 <li class="nav-item"> <a class="nav-link" href="/listesUsers"> Register </a></li>
                 <br>
 
-                <form class="forms-sample" method="POST" action="{{route('update.password.users')}}" >
 
-
-                    @csrf
-                  <div class="form-group">
-                    <label for="exampleInputUsername1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputUsername1"  name="password" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputUsername12">Password-confirm</label>
-                    <input type="password" class="form-control" id="exampleInputUsername12"  name="password_confirm" required>
-                  </div>
-
-                  <input type="hidden" class="form-control" id="exampleInputEmail13" value="{{Auth::user()->id}}" name="id" placeholder="Email">
-
-                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
-
-                </form>
 
               </ul>
             </div>

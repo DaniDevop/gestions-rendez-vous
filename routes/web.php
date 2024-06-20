@@ -32,7 +32,8 @@ Route::middleware(['auth.patient'])->group(function(){
     Route::post('/patient/dashboard/demande-patient', [PatientController::class, 'addDemande'])->name('addDemande.patient');
     Route::post('/patient/dashboard/update-motif', [PatientController::class, 'updateMotif'])->name('updateMotif.patient');
 
-    Route::get('/patient/dashboard/logout-patient', [PatientController::class, 'logoutPatient'])->name('logout.patient');
+    Route::get('/patient/dashboard/update-profile', [PatientController::class, 'edit'])->name('edit.patient');
+
 
 
 });
@@ -55,6 +56,7 @@ Route::middleware([ 'auth.users'])->group(function () {
     Route::post('/deleteEmploie', [AppointmentControllers::class, 'destroy']);
     Route::post('/updateEmploie', [AppointmentControllers::class, 'update']);
 
+    Route::get('/patient/dashboard/update-profile', [AdminController::class, 'edit'])->name('edit.patient');
 
 
     Route::get('/logoutUsers',[AdminController::class,'logoutUsers'])->name('logout.users');

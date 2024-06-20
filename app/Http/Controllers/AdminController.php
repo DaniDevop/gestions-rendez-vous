@@ -23,15 +23,23 @@ class AdminController extends Controller
     }
 
 
+
+
+    public function edit(){
+
+        return view('Admin.users.update');
+    }
+
+
     public function search(Request $request){
 
         $value=$request->validate([
             'value'=>'required'
         ]);
-        
+
         $search = $request->value;
 
-       
+
 
         $usersAll=User::where('name', 'like', '%'.$search.'%')->orWhere('prenom', 'like', '%'.$search.'%')
         ->orwhere('email', 'like', '%'.$search.'%')
