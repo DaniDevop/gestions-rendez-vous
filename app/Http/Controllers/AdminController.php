@@ -93,6 +93,7 @@ class AdminController extends Controller
         $users->email=$usersRequest->email ?:"";
         $users->role=$usersRequest->role;
         $users->prenom=$usersRequest->prenom;
+        $users->tel=$usersRequest->tel;
         $imagePath="";
         if($usersRequest->hasFile('profil')){
             $imagePath=$usersRequest->file('profil')->store('users','public');
@@ -123,6 +124,7 @@ class AdminController extends Controller
         $users->name=$usersRequest->name;
         $users->email=$usersRequest->email ?:"";
         $users->prenom=$usersRequest->prenom;
+        $users->tel=$usersRequest->tel;
 
         if($usersRequest->hasFile('profil')){
             $users->profil=$usersRequest->file('profil')->store('users','public');

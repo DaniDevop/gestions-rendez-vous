@@ -41,7 +41,7 @@
                   </button></br>
 
 
-                 
+
 
 
               <div class="col-lg-12 grid-margin stretch-card">
@@ -52,7 +52,7 @@
                       <table class="table table-striped">
                         <form action="{{route('search.Specialite')}}" method="POST">
                             @csrf
-                           
+
                             <input type="text" name="value" placeholder="Recherche ..." required>
                             <button type="submit" class="btn btn-info">Valider</button>
                           </form>
@@ -86,6 +86,7 @@
 
                         </tbody>
                       </table>
+                       {{$spetialiteAll->links()}}
                     </div>
                   </div>
                 </div>

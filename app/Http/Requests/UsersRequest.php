@@ -28,6 +28,7 @@ class UsersRequest extends FormRequest
             'role'=>'required',
             'password'=>'required|min:4',
             'password_confirm'=>'required|min:4',
+            'tel'=>'nullable|unique:users,tel',
             'email'=>'nullable|unique:users,email',
 
         ];
@@ -46,7 +47,8 @@ class UsersRequest extends FormRequest
            'role.required'=>'Le role est requis',
            'password.min'=>'Le mot de passe doit avoir aumoins 4 caractère',
            'password_confirm.required'=>'Le mot  de passe de confirmation doit avoir aumoins 4 caractères',
-           'email.unique'=>'L email existe déjà dans la base de donnée 🛑',
+           'email.unique'=>'L email 📧 existe  déjà dans la base de donnée ',
+           'tel.unique'=>'Le numéro 📲 existe déjà dans la base de donnée ',
 
         ];
     }

@@ -34,7 +34,7 @@
             </div>
             <div class="row">
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary mr-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     +Ajouter un utilisateur
                   </button>
 
@@ -48,7 +48,7 @@
                     <div class="table-responsive">
                       <table class="table table-striped">
 
-                        <form action="{{route('search.users')}}" method="GET">
+                        <form action="{{route('search.users')}}" method="GET" class="mr-3">
                             @csrf
 
                             <input type="text" name="value" placeholder="Recherche ..." required>
@@ -113,6 +113,10 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail12">Telephone</label>
+                <input type="text" class="form-control" id="exampleInputEmail12"  name="tel" placeholder="Téléphone">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Piece</label>
