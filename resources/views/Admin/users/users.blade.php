@@ -22,10 +22,10 @@
                 <ol class="breadcrumb">
                 </ol>
                 @if ($errors->any())
-                <div >
+                <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li class="alert alert-danger">{{ $error }}</li>
+                            <li >{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -50,7 +50,7 @@
 
                         <form action="{{route('search.users')}}" method="GET">
                             @csrf
-                           
+
                             <input type="text" name="value" placeholder="Recherche ..." required>
                             <button type="submit" class="btn btn-info">Valider</button>
                           </form>
@@ -61,7 +61,7 @@
                             <th> Prenom </th>
                             <th> Email </th>
                             <th> Tel </th>
-                            
+
                           </tr>
                         </thead>
                         <tbody>
@@ -76,7 +76,7 @@
                             </td>
                             <td> {{$users->email}} </td>
                             <td> {{$users->tel}} </td>
-                            
+
                           </tr>
                           @endforeach
 

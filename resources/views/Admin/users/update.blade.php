@@ -48,12 +48,16 @@
                         <input type="text" class="form-control" id="exampleInputUsername12E" value="{{Auth::user()->prenom}}" name="prenom" placeholder="Prenom">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail12">Email address</label>
+                        <label for="floatingInput">Adresse-email</label>
                         <input type="email" class="form-control" id="exampleInputEmail12" value="{{Auth::user()->email}}" name="email" placeholder="Email">
                       </div>
                       <div class="form-group">
+                        <label for="exampleInputEmail12">Telephone</label>
+                        <input type="email" class="form-control" id="exampleInputEmail12" value="{{Auth::user()->tel ? :''}}" name="tel" placeholder="Téléphone">
+                      </div>
+                      <div class="mb-3">
                         <label for="exampleInputPassword13">Piece</label>
-                        <input type="file" class="form-control" id="exampleInputPassword13" name="profil" >
+                        <input type="file" class="form-control" id="formFile" name="profil" >
                       </div>
 
                       <input type="hidden" class="form-control" id="exampleInputEmail133" value="{{Auth::user()->id}}" name="id" placeholder="Email">
