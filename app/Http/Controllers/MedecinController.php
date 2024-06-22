@@ -6,6 +6,8 @@ use App\Http\Requests\MedecinRequest;
 use App\Http\Requests\SpetialiteRequest;
 use App\Models\Medecin;
 use App\Models\Specialite;
+use App\Models\SpecialiteMedecin;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class MedecinController extends Controller
@@ -24,7 +26,7 @@ class MedecinController extends Controller
         $medecin->nom=$request->nom;
         $medecin->prenom=$request->prenom;
         $medecin->email=$request->email;
-        $medecin->tel=$request->phone;
+        $medecin->tel=$request->tel;
         if($request->hasFile('profil')){
          $imagePath=$request->file('profil')->store('images','public');
         }
@@ -67,15 +69,35 @@ class MedecinController extends Controller
         if(!$medecin){
             toastr()->error('Medecin non trouvé');
         }
+        $specialite=SpecialiteMedecin::all();
+        $specialiteMedecin=SpecialiteMedecin::where('medecin_id',$id)->get();
 
-        return view("Admin.medecin.edit",compact('medecin'));
+        return view("Admin.medecin.edit",compact('medecin','specialiteMedecin','specialite'));
 
     }
 
 
+    public function addSpecialiteToMedecin(Request $request):RedirectResponse{
+        $request->validate([
+               'specialite_id'=>'required|exists:specialites,id',
+               'medecin_id'=>'required|exists:medecins,id'
+        ]);
+        $specialiteExiste=SpecialiteMedecin::where('medecin_id',$request->medecin_id)->where('specialite',$request->specialite_id)->get();
+        if($specialiteExiste){
+            toastr()->warning('Cette spécialité est déjà attribué à ce medecin');
+            return back();
+        }
+        $specialite=new SpecialiteMedecin();
+        $specialite->medecin_id=$request->medecin_id;
+        $specialite->specialite_id=$request->specialite_id;
+        $specialite->save();
+        toastr()->info('Specialité ajouét avec succès !');
+        return back();
+    }
     public function listeSpecialite(){
         $spetialiteAll=Specialite::orderBy('id','DESC')->paginate(5);
-        return view("Admin.Spetialite.listes",compact('spetialiteAll'));
+        $medecinAll=Medecin::all();
+        return view("Admin.Spetialite.listes",compact('spetialiteAll','medecinAll'));
 
     }
 
@@ -83,7 +105,7 @@ class MedecinController extends Controller
     public function searchSpecialite(Request $request){
 
         $request->validate([
-           'value'=>'required' 
+           'value'=>'required'
         ]);
 
         $spetialiteAll=Specialite::where('nom', 'like', '%'.$request->value.'%')
@@ -102,7 +124,7 @@ class MedecinController extends Controller
         $spetialiteAll->nom=$spetialiteRequest->nom;
         $spetialiteAll->status=$spetialiteRequest->status;
         $spetialiteAll->save();
-        flash()->success('Specialite ajoute avec success !.');
+        toastr()->success('Specialite ajoute avec success !.');
         return back();
     }
 
@@ -111,10 +133,10 @@ class MedecinController extends Controller
         $value=$request->validate([
             'value'=>'required'
         ]);
-        
+
         $search = $request->value;
 
-       
+
 
         $medecinAll=Medecin::where('nom', 'like', '%'.$search.'%')->orWhere('prenom', 'like', '%'.$search.'%')
         ->orwhere('email', 'like', '%'.$search.'%')

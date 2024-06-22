@@ -20,4 +20,8 @@ class Medecin extends Model
 
         return $this->hasMany(patientRendezVous::class);
     }
+
+    public function SpecialiteMedecin():HasMany{
+        return $this->hasMany(SpecialiteMedecin::class);
+    }
 }

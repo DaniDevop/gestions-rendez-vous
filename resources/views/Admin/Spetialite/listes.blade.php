@@ -93,6 +93,32 @@
               </div>
 
 
+              <form class="forms-sample" method="POST" action="{{route('addSpecialite.To.Medecin')}}" >
+                @csrf
+              <div class="form-group">
+                <label for="exampleInputUsername1">Sépcialité</label>
+                <select name="specialite_id" id="" class="form-control">
+                    @foreach($spetialiteAll as $special)
+                    <option value="{{ $special->id}}">{{ $special->nom}}</option>
+                    @endforeach
+                    </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputUsername1">Medecin</label>
+                <select name="medecin_id" id="" class="form-control">
+                @foreach($medecinAll as $medecin)
+                    <option value="{{ $medecin->id}}">{{ $medecin->nom}}</option>
+                    @endforeach
+
+                    </select>
+              </div>
+
+
+              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+             
+            </form>
+
               <!-- Button trigger modal -->
 
 

@@ -34,30 +34,28 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th> Profile </th>
+                            <th> Numéro </th>
                             <th> Nom </th>
                             <th> Prenom </th>
-                            <th> Email </th>
-                            <th> Tel </th>
-                            <th> Modifier </th>
+                            <th> Spécialité </th>
+
+
                           </tr>
                         </thead>
                         <tbody>
-
-                          <tr>
-                            <td class="py-1">
-                              <img src="{{asset('storage/'.$medecin->profil)}}" alt="image" />
-                            </td>
-                            <td> {{$medecin->nom}} </td>
+                            @foreach($specialiteMedecin as $medecin)
+                        <tr>
+                        <td> {{$medecin->id}} </td>
+                            <td> {{optional($medecin->medecin)->nom}} </td>
                             <td>
-                            {{$medecin->prenom}}
+                            {{optional($medecin->medecin)->prenom}}
                             </td>
-                            <td> {{$medecin->email}} </td>
-                            <td> {{$medecin->tel}} </td>
-                            <td> <a href="#" class="btn btn-info"><i class="bi bi-eye"  data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a> </td>
+                            <td> {{optional($medecin->specialite)->nom}} </td>
+
+
 
                           </tr>
-
+                          @endforeach
 
                         </tbody>
                       </table>

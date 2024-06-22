@@ -24,11 +24,11 @@ class MedecinRequest extends FormRequest
         return [
             'nom'=>'required',
             'prenom'=>'required',
-            'email'=>'nullable|email,unique:medecins,email',
-            'tel'=>'required',
+            'email'=>'nullable|email|unique:medecins,email',
+            'tel'=>'required|unique:medecins,tel',
             'adresse'=>'nullable',
             'profil'=>'nullable|image:png,jpg,jpeg',
-            
+
         ];
     }
 
@@ -44,6 +44,7 @@ class MedecinRequest extends FormRequest
             'email.unique'=>'L email existe déjà dans la base de données  ',
             'email.email'=>'L adresse email n est pas correct  ',
             'nom.unique'=>'Le numéro de téléphone doit etre unique  ',
+            'tel.unique'=>'Le numéro existe déjà dans la dase de données   ',
         ];
     }
 }
