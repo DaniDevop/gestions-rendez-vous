@@ -33,6 +33,7 @@ Route::middleware(['auth.patient'])->group(function(){
     Route::post('/patient/dashboard/update-motif', [PatientController::class, 'updateMotif'])->name('updateMotif.patient');
 
     Route::get('/patient/dashboard/update-profile', [PatientController::class, 'edit'])->name('edit.patient');
+    Route::get('/logout-patient', [PatientController::class, 'logoutPatient'])->name('logout.patient');
 
 
 

@@ -4,11 +4,7 @@
   @include('Patient.pages.head')
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
 
-    <!-- header-start -->
     <header>
         <div class="header-area ">
             <div class="header-top_area">
@@ -53,8 +49,11 @@
                                 <nav>
                                     <ul id="navigation">
 
-
+                                         @if(session()->get('auth')==true)
+                                        <li><a href="{{route('dashboard.client')}}" >Mon compte</a></li>
+                                        @else
                                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a></li>
+                                        @endif
                                     </ul>
                                 </nav>
                             </div>
