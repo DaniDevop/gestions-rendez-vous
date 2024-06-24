@@ -113,7 +113,9 @@ class MedecinController extends Controller
         ->orWhere('created_at', 'like', '%'.$request->value.'%')
         ->orWhere('updated_at', 'like', '%'.$request->value.'%')
         ->paginate(5);
-        return view("Admin.Spetialite.listes",compact('spetialiteAll'));
+        $spetialiteAll=Specialite::orderBy('id','DESC')->paginate(5);
+        $medecinAll=Medecin::all();
+        return view("Admin.Spetialite.listes",compact('spetialiteAll','medecinAll'));
 
     }
 
