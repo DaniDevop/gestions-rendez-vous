@@ -128,7 +128,14 @@ class PatientController extends Controller
             'id'=>'required|exists:patients,id',
         ]);
 
-      
+        $todayCount = patientRendezVous::where('patient_id', $request->id)
+        ->whereDate('created_at', date('Y-m-d'))
+        ->count();
+
+    if ($todayCount >= 1) {
+        toastr()->error('Vous avez déjà fait deux demandes aujourd\'hui.');
+        return back();
+    }
         $rendez_vous=new patientRendezVous();
         $rendez_vous->motif=$request->motif;
         $rendez_vous->patient_id=$request->id;

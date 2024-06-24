@@ -82,11 +82,7 @@ class MedecinController extends Controller
                'specialite_id'=>'required|exists:specialites,id',
                'medecin_id'=>'required|exists:medecins,id'
         ]);
-        $specialiteExiste=SpecialiteMedecin::where('medecin_id',$request->medecin_id)->where('specialite',$request->specialite_id)->get();
-        if($specialiteExiste){
-            toastr()->warning('Cette spécialité est déjà attribué à ce medecin');
-            return back();
-        }
+       
         $specialite=new SpecialiteMedecin();
         $specialite->medecin_id=$request->medecin_id;
         $specialite->specialite_id=$request->specialite_id;
