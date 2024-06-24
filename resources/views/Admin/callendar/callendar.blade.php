@@ -120,7 +120,7 @@
                 btnDelete.innerHTML = 'Delete';
                 btnDelete.className = 'btn btn-danger btn-sm';
                 btnDelete.onclick = function() {
-                    if (confirm('Are you sure you want to delete this event?')) {
+                    if (confirm('Voulez vous vraiment supprimer  ?')) {
                         fetch('/deleteEmploie', {
                             method: 'POST',
                             headers: {
@@ -134,7 +134,7 @@
                             if (data.status === 'success') {
                                 info.event.remove();
                             } else {
-                                alert('Something went wrong!');
+                                alert('Une erreur c est produite actualisé la page!');
                             }
                         });
                     }
@@ -179,7 +179,7 @@
                     });
                     $('#exampleModal').modal('hide');
                 } else {
-                    alert('Something went wrong!');
+                    alert('Une erreur c est produite actualisé la page!');
                 }
             })
             .catch(error => {
@@ -212,7 +212,7 @@
                     event.setProp('title', title);
                     $('#updateModal').modal('hide');
                 } else {
-                    alert('Something went wrong!');
+                    alert('Une erreur c est produite actualisé la page!');
                 }
             })
             .catch(error => {
