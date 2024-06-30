@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/Authentification', [AdminController::class, 'login_users'])->name('login.users');
 Route::post('/Authentification/users', [AdminController::class, 'doLogin'])->name('doLogin.users');
 
-Route::get('/patient/home', [PatientController::class, 'home'])->name('home.client');
+Route::get('', [PatientController::class, 'home'])->name('home.client');
 Route::post('/patient/create-account', [PatientController::class, 'addAccountPatient'])->name('add.account.patient');
 Route::post('/patient/login-patient', [PatientController::class, 'loginPatient'])->name('login.patient');
 
@@ -50,7 +50,7 @@ Route::middleware([ 'auth.users'])->group(function () {
     Route::post('/updateMedecin',[MedecinController::class,'update']);
     Route::post('/searcheSpecialite',[MedecinController::class,'searchSpecialite'])->name('search.Specialite');
     Route::post('/addSpecialite',[MedecinController::class,'addSpecialiteToMedecin'])->name('addSpecialite.To.Medecin');
-    Route::get('/', [AdminController::class, 'home'])->name('home');
+    Route::get('/homeAdmin', [AdminController::class, 'home'])->name('home');
     Route::get('/callendarMedecin', [AppointmentController::class, 'index']);
     Route::get('/listeEmploie', [AppointmentControllers::class, 'index']);
     Route::post('/addEmploie', [AppointmentControllers::class, 'store'])->name('addEmploie');
