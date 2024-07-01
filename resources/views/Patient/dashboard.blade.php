@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="no-js"> 
+<html class="no-js">
 
 @include('Patient.template.head')
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -16,7 +16,7 @@
 		</div>
 		<nav class="left-nav">
 			<ul id="nav">
-				<li class="current"><a href="/patient/home">Page d'acceuil</a></li>
+				<li class="current"><a href="/">Page d'acceuil</a></li>
 				<li><a href="#css-structure"> <i class="bi bi-envelope-at"></i> Messages</a></li>
 
 				<li><a href="#credit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update compte</a></li>

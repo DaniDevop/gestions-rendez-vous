@@ -22,7 +22,7 @@
             <span class="nav-link">Informations</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/">
+            <a class="nav-link" href="/homeAdmin">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>

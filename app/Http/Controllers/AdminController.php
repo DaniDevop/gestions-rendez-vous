@@ -63,7 +63,9 @@ class AdminController extends Controller
 
     public function login_users(){
 
+
         return view('Admin.login');
+
     }
 
     public function doLogin(LoginRequest $request){
